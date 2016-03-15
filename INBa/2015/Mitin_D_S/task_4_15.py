@@ -14,8 +14,8 @@ burth_place = "Гренобль"
 burth_country = "Франция"
 print(real_name + " - известный французский писатель, один из основоположников психологических романов")
 print(burth_place + ", " + burth_country)
-print("Годы жизни: " + year_old + " - " + year_old_die)
+print("Годы жизни:", year_old, "-", year_old_die)
 vozrast=year_old_die- year_old
-print("Возраст: " + vozrast)
+print("Возраст:", vozrast,"лет.")
 print("Область деятельности: " + hobby)
 input("Нажмите ENTER для продолжения.")
