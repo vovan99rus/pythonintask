@@ -7,7 +7,7 @@ import random
 A =int(random.randint(0,1))
 one = " Ромул "
 two = ' Рем '
-if A <= 0:
+if A == 0:
     print('Великие основатели Рима' + one + "и" + two)
 else:
     print('Великие Основат5ли Рима' + two + "и" + one)
