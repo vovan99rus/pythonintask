@@ -14,8 +14,8 @@ day = week[number].lower()
 inputDay = input("Угадайте один из семи дней недели: ")
 score = 6
 while inputDay != day:
-	out = "Ваш счёт " + score + "Вы не угадали, попробуйте ещё раз: "
-	inputDay = input(out)
-	score = score - 1
-out += " Нажмите Enter для выхода."
+        inputDay = input("Вы не угадали, попробуйте ещё раз: ")
+        if (score > 0):
+                score -= 1
+out = "Вы угадали! Ваш счёт " + str(score) + ". Нажмите Enter для выхода."
 input(out)
