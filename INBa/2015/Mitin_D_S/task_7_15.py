@@ -41,6 +41,6 @@ while(otvet != choice):
 print("Правильно! Это город",choice,"!")
 if ochki>0: 
     print("Вы набрали ",ochki," очков! Поздравляем!")
-elif ochki<0:
+elif ochki<=0:
     print("У вас 0 очков. Вы проиграли. Попробуйте еще."
 input("Нажмите ENTER для продолжения")
