@@ -23,8 +23,8 @@ while live>0:
 			live=live-1
 if live==0:
 		slovo=input("Ваши попытки кончились")
-		if slvo==word:
-			print("Вы угадали слово")
+if solvo==word:
+print("Вы угадали слово")
 		else:
 			print("Вы не угадали слово")
 input("Нажмите Enter для выхода")
