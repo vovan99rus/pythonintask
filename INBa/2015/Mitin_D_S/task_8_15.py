@@ -11,7 +11,8 @@ ochki = 500000
 slova = ("питон", "программирование", "компьютер", "университет", "россия", "безопасность", "информатика")
 zagadka=random.choice(slova)
 proverka = zagadka
-jumble=""
+i=0
+jumble = ""
 while zagadka:
 	bykva = random.randrange(len(zagadka))
 	jumble += zagadka[bykva]
@@ -20,9 +21,16 @@ print("Вы попали в передачу 'Анаграммы'")
 print("Загаданное слово: ", jumble)
 slovo = input ("Ваш ответ: ")
 while (slovo != proverka):
-    slovo = input("Неправильно. Попробуй еще раз: ")
-    ochki -= 10000
-
-print("\nПравильно! Это слово: ", proverka)
-print("Вы набрали",ochki," очков! Поздравляем!")
+	if(slovo == "не знаю"):
+		print(i,"буква: ",proverka[i])
+		i+=1
+	if ochki <= 0:
+		break
+	slovo=input("Неправильно. Попробуй еще раз: ")
+	ochki-=50000
+if slovo == proverka: 
+	print("\nПравильно! Это слово: ", proverka)
+	print("Вы набрали",ochki," очков! Поздравляем!")
+else: 
+	print("К сожалению, у вас 0 очков, и вы проиграли :( Загаданное слово:",proverka)
 input ("Нажмите ENTER для продолжения")
