@@ -11,7 +11,7 @@ zagadka=random.choice(slova)
 proverka=zagadka
 chislo=len(zagadka)
 bykva = random.randrange(chislo)
-i=5
+i=4
 k=0
 print("Здравствуй, студент! Ты должен спасти мир, отгадав загаданное словов!")
 print("Ты называешь буквы, а я говорю тебе, есть ли она в слове, или нет! И у тебя есть только пять попыток! ПЯТЬ!")
