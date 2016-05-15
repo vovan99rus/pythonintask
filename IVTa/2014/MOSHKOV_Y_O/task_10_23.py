@@ -8,22 +8,37 @@
 # другие значения.
 
 # Moshkov Y. O.
-# 12.05.2016
+# 15.05.2016
 
 print("Генератор персонажа.")
-points = 30
-character = {"Сила" : 8, "Ловкость" : 8, "Здоровье" : 8, 
-"Мудрость" : 8}
-for i in character:
-        
-        print(character[i])
-values = character.keys()
-attr = input("Введите аттрибут, который вы хотите изменить: ")
-num = int(input("Введите количество очков (\"-\" для вычитания очков): "))
-print(num)
-points -= num
-for value in character:
-        if attr == value:
-                print(attr)
+
+class Character:
+        def __init__(self, points):
+                self.attrib = ("Сила", "Ловкость", "Здоровье", "Мудрость")
+                self.values = [8, 8, 8, 8]
+                self.ppool = points
+        def update(self, chrt, num):
+                print()
+                for i in range (len(self.attrib)):
+                        if chrt.capitalize() == self.attrib[i]:
+                                self.ppool -= num
+                                if self.ppool < 0:
+                                        num += self.ppool
+                                        self.ppool = 0
+                                self.values[i] += num
+                        print(self.attrib[i], end = ' : ')
+                        print(self.values[i])
+                print("\nОчки:", self.ppool)
+
+pers = Character(30)
+chrt, num = "some", 0
+while chrt != "":
+        pers.update(chrt, num)
+        chrt = input("\nХарактеристика: ").strip()
+        temp = input("Очки (\"-\" для уменьшения, Enter для выхода): ").strip()
+        if len(temp):
+                if temp.isdigit() or temp[0] == '-':
+                        num = int(temp)
+print("\nСоздание персонажа завершено...")
 
 input("Нажмите Enter для выхода")
