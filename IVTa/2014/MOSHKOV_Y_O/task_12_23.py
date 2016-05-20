@@ -14,27 +14,22 @@ class Game:
         for i in range (3):
             self.field.append(['', '', ''])
     def move(self, pos):
-        self.fill_pos(pos)
+        state = 0
+        if self.fill_pos(pos):
+            state = 1
         if self.checkWin():
-            winner = "Нолики"
-            if self.crturn:
-                winner = "Крестики"
-            if (messagebox.askquestion("Победа!", winner +
-                                       " выиграли. Начать заново?")) == "yes":
-                newGame(buttons)
-                self.clear()
-            else:
-                gui.destroy()
-        self.crturn = not self.crturn
+            state = 2
+        return state
     def fill_pos(self, pos):
         if self.crturn:
-            self.field[int(pos / 3)][pos % 3] = 'X'
+            if self.field[int(pos / 3)][pos % 3] == '':
+                self.field[int(pos / 3)][pos % 3] = 'X'
+                return True
         else:
-            self.field[int(pos / 3)][pos % 3] = 'O'
-        for elem in self.field:
-            print(elem)
+            if self.field[int(pos / 3)][pos % 3] == '':
+                self.field[int(pos / 3)][pos % 3] = 'O'
+                return True
     def checkWin(self):
-        print("Checking...")
         if self.crturn:
             unit = 'X'
         else:
@@ -74,11 +69,25 @@ game = Game()
 # GUI
 
 def act(num, game, button):
-    if (game.crturn):
-        button["text"] = 'X'
-    else:
-        button["text"] = 'O'
-    game.move(num)
+    state = game.move(num)
+    if state > 0:
+        if game.crturn:
+            button["text"] = 'X'
+        else:
+            button["text"] = 'O'
+        if state == 2:
+            winner = "Нолики"
+            if game.crturn:
+                winner = "Крестики"
+            if (messagebox.askquestion("Победа!", winner +
+                                           " выиграли. Начать заново?")) == "yes":
+                newGame(buttons)
+                game.clear()
+                game.crturn = True
+            else:
+                gui.destroy()
+        else:
+            game.crturn = not game.crturn
 
 def newGame(buttons):
     for btn in buttons:
