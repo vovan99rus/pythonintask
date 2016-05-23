@@ -10,3 +10,4 @@ interesy = "Инженерия"
 print("Область интересов: "+interes)
 letsmomentsmert = 2016 - smert
 print('Лет с момента смерти: '+letsmomentsmert)
+input()
