@@ -31,25 +31,14 @@ while variant!= computer_selection:
     if tr1==5 :
         
         
-        if (input("нужны ли Вам подсказки?\n")) == "да" :
+        if (input("Нужны ли Вам подсказки?\n")) == "да" :
             print("Длина заданного слова = :",len(computer_selection),"\n")
         tr1=tr1-1
         
-    if tr1 <= 0 :
-        pass
-    else :
-        if tr1 <5 and tr1 >0 and x==0:
-            if (input("нужна ли Вам ещё подсказка?\n")) == "да" :
-                
-                letter=input("Назовите букву и я скажу - есть ли она в слове :  ")
-                if letter in computer_selection :
-                    print("\n Эта буква присутствует в слове")
-                else :
-                    print ("буква отсутвует \n")
  
  
  
-    variant=input("\n Ваш вариант :")
+    variant=input("\nВаш вариант:")
  
     
     if variant==computer_selection :
