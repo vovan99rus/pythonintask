@@ -44,7 +44,7 @@ while variant!= computer_selection:
     if variant==computer_selection :
         print("Вы угадали!")
     else :
-        "Вы ошиблись\n"
+        print("Вы ошиблись!\n")
  
 
         
