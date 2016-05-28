@@ -19,7 +19,7 @@ def display_instruct():
 
 def ask_yes_no(question):
 	response = None
-	while response not in ("y", "n"):
+	while response not in ("да", "нет"):
 		response = input(question).lower()
 	return response
 
